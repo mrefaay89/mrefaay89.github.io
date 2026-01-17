@@ -2,3 +2,5 @@ title: Mohamed Refaay
 email: mrefaay@outlook.com 
 url: "https://mrefaay89.github.io"
 theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
