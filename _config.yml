@@ -1,6 +1,14 @@
-title: Mohamed Refaay Blog
-email: mrefaay@outlook.com 
-url: "https://mrefaay89.github.io"
+title: Mohamed Refaay Blogs
+# هذا السطر يغير كلمة Blogs التي تظهر أحياناً في ترويسة الموقع
+description: >-
+  متخصص في حلول البنية التحتية، Nutanix، و Azure Stack HCI.
+
+# روابط السوشيال ميديا (ضع اسم المستخدم الخاص بك فقط)
+twitter_username: mrefaay89
+github_username:  mrefaay89
+linkedin_username: mrefaay89 # تأكد من اسم المستخدم الخاص بك في لينكد إن
+
+# إعدادات القالب
 theme: minima
 plugins:
   - jekyll-feed
