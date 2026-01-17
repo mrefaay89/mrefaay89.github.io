@@ -1,2 +1,1 @@
 # mrefaay.github.io
-Blogs
