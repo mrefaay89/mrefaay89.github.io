@@ -1,6 +1,5 @@
 ---
 layout: home
-title: Mohamed Refaay's Blog
 ---
 
 <div style="direction: rtl; text-align: right;">
