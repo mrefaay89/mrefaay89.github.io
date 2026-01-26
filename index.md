@@ -2,7 +2,7 @@
 layout: home
 ---
 
-<div style="direction: rtl; text-align: right;">
+<div style="direction: rtl; text-align: left;">
 
 Welcome to my technical blog. This is a space where I share my professional experiences, deep dives, and troubleshooting guides focused on **Hybrid Infrastructure**, **Cloud Computing**, and **Enterprise Virtualization**.
 
