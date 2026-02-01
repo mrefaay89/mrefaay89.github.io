@@ -8,5 +8,5 @@ I am a Cloud and Infrastructure Specialist with extensive expertise in Hyper-Con
 
 Feel free to reach out to me for collaborations, technical discussions, or professional networking:
 
-* [LinkedIn](https://www.linkedin.com/in/mohamed-refaay-6b49a0120)
-* [GitHub](https://github.com/mrefaay89)
+* <a href="https://www.linkedin.com/in/mohamed-refaay-6b49a0120" target="_blank">LinkedIn</a>
+* <a href="https://github.com/mrefaay89" target="_blank">GitHub</a>
