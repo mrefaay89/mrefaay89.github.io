@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+permalink: /about/
 ---
 
 I am a Cloud and Infrastructure Specialist with extensive expertise in Hyper-Converged Infrastructure (HCI), Virtualization, and enterprise Storage and Backup solutions. 
