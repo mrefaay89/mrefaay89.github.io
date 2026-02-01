@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-<div style="direction: rtl; text-align: right;">
+<div style="direction: rtl; text-align: center;">
 
 I am a Cloud and Infrastructure Specialist with extensive expertise in Hyper-Converged Infrastructure (HCI), Virtualization, and enterprise Storage and Backup solutions.
 
