@@ -378,18 +378,4 @@ Check the single-appliance limit, the missing Files and NearSync support, and th
 
 * * *
 
-## References
-
-- [Nutanix Cloud Platform with Dell PowerStore Deployment Guide (v7.6)](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Platform-with-Dell-PowerStore-Deployment-Guide-v7_6:Nutanix-Cloud-Platform-with-Dell-PowerStore-Deployment-Guide-v7_6)
-- [Foundation Central Appliance Guide (v2.2)](https://portal.nutanix.com/page/documents/details?targetId=Foundation-Central-Appliance-v2_2:Foundation-Central-Appliance-v2_2)
-- [Dell PowerStore with Nutanix Cloud Platform Technical Overview](https://www.dell.com/en-us/infohub/articles/dell-powerstore-with-nutanix-cloud-platform-technical-overview)
-- [Nutanix AHV on Dell Private Cloud v1.2 Pre-Deployment Guide](https://www.dell.com/support/manuals/en-us/nutanix-ahv-on-dell-private-cloud/dpc_nutanix_p_predeployment_guide_1.2/Revision-history?guid=guid-abc8f765-069f-4990-a64e-2a0d65c9d5a7&lang=en-us)
-- [Nutanix AHV on Dell Private Cloud v1.2 Administration Guide](https://www.dell.com/support/manuals/en-us/nutanix-ahv-on-dell-private-cloud/dpc_nutanix_p_admin_guide_1.2/Overview?guid=guid-5b4fc12d-0415-452f-b466-ac69a7307fea&lang=en-us)
-- [Nutanix AHV on Dell Private Cloud v1.2 Release Notes](https://www.dell.com/support/manuals/en-us/nutanix-ahv-on-dell-private-cloud/dpc_nutanix_release_notes_1.2/Nutanix-AHV-on-Dell-Private-Cloud-v12-Release-Notes?guid=guid-465abf8c-3e75-4296-800d-d86a05c2758b&lang=en-us)
-- [Dell Private Cloud Deploying Nutanix Technical Brief](https://www.delltechnologies.com/asset/en-us/products/converged-infrastructure/briefs-summaries/dell-private-cloud-nutanix-technical-brief.pdf)
-- [Omdia Technical First Look: Nutanix Cloud Platform with Dell PowerStore](https://www.delltechnologies.com/assetlink/doc/en-us/omdia-technical-first-look-dell-powerstore-with-nutanix-cloud-platform-whitepaper-en-dl11fumc-original.pdf)
-- [The Nutanix Cloud Bible: External Storage Architecture](https://www.nutanixbible.com/8c-book-of-external-storage-architecture.html)
-
-* * *
-
 *Versions and limits were checked against the vendor documentation listed above in November 2026. This solution is evolving quickly, so confirm them against the current Nutanix and Dell compatibility matrices before you finalize a design.*
