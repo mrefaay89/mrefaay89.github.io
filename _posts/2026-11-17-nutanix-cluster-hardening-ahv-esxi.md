@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Technical Guide: Hardening a Nutanix Cluster on AHV and ESXi, Step by Step"
-date: 2026-11-17
+date: 2026-11-16
 categories: hybrid-infrastructure nutanix security
 ---
 
