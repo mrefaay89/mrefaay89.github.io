@@ -18,6 +18,8 @@ layout: default
     </div>
   </header>
 
+  {% include runbook.html %}
+
   <div class="wrap post-grid">
     <div class="post-content" itemprop="articleBody">
       {{ content }}
@@ -29,6 +31,27 @@ layout: default
   </div>
 
   <div class="wrap post-end">
+    {%- if series_total > 1 %}
+    <section class="series" id="series" aria-labelledby="series-title">
+      <h2 id="series-title">{{ series }} series</h2>
+      <p class="series-note">The articles in this series, oldest first.</p>
+      <ol>
+        {%- assign oldest_first = site.posts | reverse -%}
+        {%- for sp in oldest_first -%}
+          {%- assign sd = site.data.articles[sp.slug] -%}
+          {%- assign sp_series = sp.series | default: sd.series -%}
+          {%- if sp_series == series -%}
+            {%- if sp.url == page.url %}
+        <li class="is-current"><span>{{ sp.title | escape }}</span> <em>You're reading this</em></li>
+            {%- else %}
+        <li><a href="{{ sp.url | relative_url }}">{{ sp.title | escape }}</a></li>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor %}
+      </ol>
+    </section>
+    {%- endif %}
+
     <div class="author-box">
       <span class="brand-mark" aria-hidden="true">MR</span>
       <div>

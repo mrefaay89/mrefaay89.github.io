@@ -2,36 +2,7 @@
 layout: default
 ---
 {%- assign latest = site.posts.first -%}
-
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <h1>{{ site.hero_title | default: 'Field notes from real Nutanix projects' }}</h1>
-      <div class="hero-intro">{{ content }}</div>
-      <p class="hero-actions">
-        {%- if latest %}
-        <a class="btn btn-primary" href="{{ latest.url | relative_url }}">Read the latest guide</a>
-        {%- endif %}
-        <a class="btn btn-ghost" href="#articles">Browse all articles</a>
-      </p>
-    </div>
-
-    {%- if latest %}
-    {%- assign p = latest -%}
-    {%- include topic.html -%}
-    {%- include thumb.html -%}
-    <a class="hero-latest topic-{{ topic_slug }}" href="{{ latest.url | relative_url }}">
-      {%- if thumb %}
-      <img src="{{ thumb | relative_url }}" alt="" loading="eager">
-      {%- endif %}
-      <span class="hero-latest-body">
-        <span class="hero-latest-meta"><span class="chip">{{ topic }}</span> Latest, {{ latest.date | date: "%-d %B %Y" }}</span>
-        <span class="hero-latest-title">{{ latest.title | escape }}</span>
-      </span>
-    </a>
-    {%- endif %}
-  </div>
-</section>
+{%- assign topic_list = 'Security,Networking,Storage,Hardware,Migration,Infrastructure' | split: ',' -%}
 
 {%- assign all_topics = '^' -%}
 {%- for p in site.posts -%}
@@ -40,13 +11,31 @@ layout: default
 {%- endfor -%}
 {%- assign all_topics = all_topics | append: '$' -%}
 
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>{{ site.hero_title | default: 'Field notes from real data center projects' }}</h1>
+      <div class="hero-side">
+        <div class="hero-intro">{{ content }}</div>
+        <p class="hero-actions">
+          {%- if latest %}
+          <a class="btn btn-primary" href="{{ latest.url | relative_url }}">Read the latest guide</a>
+          {%- endif %}
+          <a class="btn btn-ghost" href="#articles">Browse all articles</a>
+        </p>
+      </div>
+    </div>
+
+    {% include topology.html %}
+  </div>
+</section>
+
 <section class="articles" id="articles">
   <div class="wrap">
     <div class="articles-head">
       <h2>All articles</h2>
       <div class="filters" role="group" aria-label="Filter articles by topic">
         <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All <span>{{ site.posts | size }}</span></button>
-        {%- assign topic_list = 'Security,Networking,Storage,Hardware,Migration,Nutanix' | split: ',' -%}
         {%- for t in topic_list -%}
           {%- assign t_slug = t | downcase -%}
           {%- assign needle = '|' | append: t_slug | append: '|' -%}
@@ -64,6 +53,7 @@ layout: default
       {%- include thumb.html -%}
       {%- assign words = p.content | number_of_words -%}
       {%- assign minutes = words | divided_by: 200 | plus: 1 -%}
+      {%- assign d = site.data.articles[p.slug] -%}
       <li class="post-row topic-{{ topic_slug }}" data-topic="{{ topic_slug }}">
         <a class="post-thumb" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
           {%- if thumb %}<img src="{{ thumb | relative_url }}" alt="" loading="lazy">{% endif %}
@@ -74,6 +64,14 @@ layout: default
           <p class="post-excerpt">
             {%- if p.description -%}{{ p.description | escape }}{%- else -%}{{ p.content | strip_html | strip_newlines | truncatewords: 34 }}{%- endif -%}
           </p>
+          {%- assign applies = p.applies_to | default: d.applies_to -%}
+          {%- assign work = p.work | default: d.work -%}
+          {%- if applies or work %}
+          <p class="post-tags">
+            {%- if work %}<span>{{ work }}</span>{% endif -%}
+            {%- if applies %}<span>{{ applies }}</span>{% endif -%}
+          </p>
+          {%- endif %}
         </div>
       </li>
       {%- endfor %}

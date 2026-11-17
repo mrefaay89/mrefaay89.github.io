@@ -1,0 +1,88 @@
+# One entry per article, keyed by the file name without the date and .md
+# Example: _posts/2026-11-16-nutanix-network-segmentation-ahv-esxi.md -> nutanix-network-segmentation-ahv-esxi
+#
+# short:      short name used on the home page topology map
+# applies_to: hypervisors or platforms the article covers
+# work:       type of work (New deployment, Change on a running cluster, Migration, Troubleshooting, Concepts and design)
+# downtime:   what the reader should expect
+# tested:     versions the steps were written against
+# hardware:   hardware the article is about
+# series:     series name; articles in the same series are linked together in date order
+# Every field is optional. Leave out what doesn't apply.
+
+nutanix-inplace-conversion-esxi-to-ahv:
+  short: In-place ESXi to AHV conversion
+  applies_to: ESXi to AHV
+  work: Migration
+  downtime: Rolling, typically under 5 minutes per VM
+
+nutanix-cisco-ucs-standalone-deployment:
+  short: Cisco UCS standalone (ISM)
+  applies_to: AHV or ESXi
+  work: New deployment
+  hardware: Cisco UCS C-Series
+  series: Nutanix on Cisco UCS
+
+nutanix-dell-powerstore-external-storage:
+  short: Dell PowerStore external storage
+  applies_to: AHV
+  work: New deployment
+  tested: AOS 7.6, AHV 11.2, Foundation Central 2.2
+  hardware: Dell PowerEdge and PowerStore
+  series: Nutanix with external storage
+
+ahv-networking-explained-for-vmware-engineers:
+  short: AHV networking for VMware engineers
+  applies_to: AHV
+  work: Concepts and design
+
+ahv-to-ahv-migration-reip-nutanix-dr:
+  short: AHV-to-AHV re-IP with Nutanix DR
+  applies_to: AHV to AHV
+  work: Migration
+  downtime: One planned failover per wave
+
+esxi-root-ramdisk-full-ilorest-log-nutanix-hpe:
+  short: iLORest.log fills the ESXi ramdisk
+  applies_to: ESXi 8.0 U3
+  work: Troubleshooting
+  tested: AOS 7.5.1.8, NCC 5.3.1
+  hardware: HPE ProLiant DX380a Gen11
+
+nutanix-cisco-ucs-imm-umm-deployment:
+  short: Cisco UCS IMM and UMM
+  applies_to: AHV
+  work: New deployment
+  hardware: Cisco UCS C-Series and X-Series
+  series: Nutanix on Cisco UCS
+
+nutanix-pure-storage-flasharray-nvme-tcp:
+  short: Pure FlashArray over NVMe/TCP
+  applies_to: AHV
+  work: New deployment
+  tested: AOS 7.5, Purity//FA 6.10.3
+  hardware: Cisco, HPE or Dell compute with FlashArray
+  series: Nutanix with external storage
+
+nutanix-volumes-network-segmentation-openshift:
+  short: Volumes segmentation for OpenShift
+  applies_to: AHV
+  work: Change on a running cluster
+  downtime: Rolling CVM reboots, iSCSI clients reconnect
+  series: Nutanix security
+
+nutanix-network-segmentation-ahv-esxi:
+  short: Network segmentation, AHV and ESXi
+  applies_to: AHV and ESXi
+  work: Change on a running cluster
+  downtime: Backplane on AHV needs guest VMs off. The rest is rolling
+  tested: AOS 7.3
+  series: Nutanix security
+
+nutanix-cluster-hardening-ahv-esxi:
+  short: Cluster hardening, AHV and ESXi
+  applies_to: AHV and ESXi
+  work: Change on a running cluster
+  downtime: None expected for most steps
+  tested: AOS 7.3
+  series: Nutanix security

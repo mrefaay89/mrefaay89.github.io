@@ -4,11 +4,17 @@
   "use strict";
 
   // ---------- Topic filter on the home page ----------
+  // The filter buttons above the list and the leaf switches on the map share one state.
   var filters = document.querySelectorAll(".filter");
+  var leafButtons = document.querySelectorAll(".leaf-switch");
   var rows = document.querySelectorAll(".post-row");
   var empty = document.querySelector(".empty-state");
+  var fabric = document.querySelector(".fabric");
+  var status = document.querySelector(".fabric-status");
+  var current = "all";
 
   function applyFilter(topic) {
+    current = topic;
     var shown = 0;
     rows.forEach(function (row) {
       var match = topic === "all" || row.dataset.topic === topic;
@@ -20,11 +26,48 @@
       btn.classList.toggle("is-active", active);
       btn.setAttribute("aria-pressed", active ? "true" : "false");
     });
+    leafButtons.forEach(function (btn) {
+      var active = btn.dataset.filter === topic;
+      btn.parentNode.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    if (fabric) fabric.classList.toggle("has-active", topic !== "all");
     if (empty) empty.hidden = shown !== 0;
+
+    if (status) {
+      if (topic === "all") {
+        status.hidden = true;
+        status.textContent = "";
+      } else {
+        var name = document.querySelector('.leaf-switch[data-filter="' + topic + '"] .leaf-name');
+        status.innerHTML = "";
+        status.appendChild(document.createTextNode(
+          "The article list below now shows " + shown + " " + (name ? name.textContent : topic) +
+          (shown === 1 ? " article." : " articles.")));
+        var all = document.createElement("a");
+        all.href = "#articles";
+        all.textContent = "Show all topics";
+        all.addEventListener("click", function (e) { e.preventDefault(); applyFilter("all"); });
+        status.appendChild(all);
+        status.hidden = false;
+      }
+    }
   }
 
   filters.forEach(function (btn) {
     btn.addEventListener("click", function () { applyFilter(btn.dataset.filter); });
+  });
+
+  // Clicking the selected leaf again clears it. On small screens the servers are
+  // hidden, so jump to the filtered list instead.
+  leafButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var topic = btn.dataset.filter === current ? "all" : btn.dataset.filter;
+      applyFilter(topic);
+      if (topic !== "all" && window.matchMedia("(max-width: 600px)").matches) {
+        document.getElementById("articles").scrollIntoView();
+      }
+    });
   });
 
   // ---------- Wide tables scroll inside their own frame ----------

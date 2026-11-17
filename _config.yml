@@ -2,11 +2,11 @@ title: Mohamed Refaay
 author: Mohamed Refaay
 email: mrefaay@outlook.com
 description: >-
-  Field notes from real Nutanix and data center projects: designs, migrations,
-  troubleshooting and security, written step by step.
+  Field notes from real data center projects: hyperconverged infrastructure,
+  virtualization, servers, storage, networking and security, written step by step.
 
 # Home page and author box text
-hero_title: Field notes from real Nutanix projects
+hero_title: Field notes from real data center projects
 author_bio: >-
   Infrastructure technical lead in Riyadh with 12+ years in the data center:
   Nutanix, VMware, Cisco UCS, storage and data protection.

@@ -16,6 +16,6 @@
 {%- elsif tc contains 'migration' or tc contains 'virtualization' -%}
   {%- assign topic = 'Migration' -%}
 {%- else -%}
-  {%- assign topic = 'Nutanix' -%}
+  {%- assign topic = 'Infrastructure' -%}
 {%- endif -%}
 {%- assign topic_slug = topic | downcase | replace: ' ', '-' -%}

@@ -17,7 +17,7 @@ Vendor documentation tells you what each feature does. It doesn't always tell yo
 
 | Topic | Examples |
 |---|---|
-| Nutanix design and deployment | Cisco UCS (ISM, IMM, UMM), external storage with Dell PowerStore and Pure FlashArray |
+| Design and deployment | Cisco UCS (ISM, IMM, UMM), external storage with Dell PowerStore and Pure FlashArray |
 | Networking | AHV networking for VMware engineers, network segmentation |
 | Migration | ESXi to AHV conversion, re-IP with Nutanix DR |
 | Troubleshooting | Real incidents, root causes and permanent fixes |
@@ -25,7 +25,7 @@ Vendor documentation tells you what each feature does. It doesn't always tell yo
 
 ## Get in touch
 
-I'm happy to talk about Nutanix, infrastructure design, or anything you've read here.
+I'm happy to talk about infrastructure design, virtualization, storage, or anything you've read here.
 
 - [LinkedIn](https://www.linkedin.com/in/mohamed-refaay-6b49a0120)
 - [GitHub](https://github.com/mrefaay89)

@@ -1,0 +1,40 @@
+{%- comment -%}
+  The "before you start" panel under an article's title.
+  Values come from _data/articles.yml (keyed by the post slug);
+  the same field in a post's front matter wins over the data file.
+  Also sets `series`, `series_part` and `series_total` for post.html.
+{%- endcomment -%}
+{%- assign rb = site.data.articles[page.slug] -%}
+{%- assign rb_applies = page.applies_to | default: rb.applies_to -%}
+{%- assign rb_work = page.work | default: rb.work -%}
+{%- assign rb_downtime = page.downtime | default: rb.downtime -%}
+{%- assign rb_tested = page.tested | default: rb.tested -%}
+{%- assign rb_hardware = page.hardware | default: rb.hardware -%}
+{%- assign series = page.series | default: rb.series -%}
+
+{%- assign series_part = 0 -%}
+{%- assign series_total = 0 -%}
+{%- if series -%}
+  {%- assign oldest_first = site.posts | reverse -%}
+  {%- for sp in oldest_first -%}
+    {%- assign sd = site.data.articles[sp.slug] -%}
+    {%- assign sp_series = sp.series | default: sd.series -%}
+    {%- if sp_series == series -%}
+      {%- assign series_total = series_total | plus: 1 -%}
+      {%- if sp.url == page.url -%}{%- assign series_part = series_total -%}{%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if rb_applies or rb_work or rb_downtime or rb_tested or rb_hardware or series_total > 1 %}
+<div class="wrap">
+  <dl class="runbook">
+    {%- if rb_applies %}<div><dt>Applies to</dt><dd>{{ rb_applies }}</dd></div>{% endif -%}
+    {%- if rb_work %}<div><dt>Type of work</dt><dd>{{ rb_work }}</dd></div>{% endif -%}
+    {%- if rb_downtime %}<div><dt>Downtime</dt><dd>{{ rb_downtime }}</dd></div>{% endif -%}
+    {%- if rb_tested %}<div><dt>Written against</dt><dd>{{ rb_tested }}</dd></div>{% endif -%}
+    {%- if rb_hardware %}<div><dt>Hardware</dt><dd>{{ rb_hardware }}</dd></div>{% endif -%}
+    {%- if series_total > 1 %}<div><dt>Series</dt><dd><a href="#series">Part {{ series_part }} of {{ series_total }}, {{ series }}</a></dd></div>{% endif -%}
+  </dl>
+</div>
+{%- endif -%}

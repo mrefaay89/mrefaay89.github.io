@@ -1,0 +1,57 @@
+{%- comment -%}
+  Home page map: the blog drawn as a small spine-leaf network.
+  One leaf switch per topic, one server per article.
+  Short names come from _data/articles.yml (short:), or from `short_title:` in a post's front matter.
+  Expects `topic_list` and `all_topics` from home.html.
+{%- endcomment -%}
+{%- assign latest_url = site.posts.first.url -%}
+{%- assign leaf_total = 0 -%}
+{%- for t in topic_list -%}
+  {%- assign t_slug = t | downcase -%}
+  {%- assign needle = '|' | append: t_slug | append: '|' -%}
+  {%- assign t_count = all_topics | split: needle | size | minus: 1 -%}
+  {%- if t_count > 0 -%}{%- assign leaf_total = leaf_total | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+
+<div class="fabric" style="--leaves: {{ leaf_total }}">
+  <div class="spine">
+    <span class="spine-ports" aria-hidden="true">{% for i in (1..leaf_total) %}<i></i>{% endfor %}</span>
+    <span class="spine-name">{{ site.posts | size }} articles across {{ leaf_total }} topics</span>
+    <span class="spine-hint">Pick a topic to filter the article list</span>
+  </div>
+
+  <ul class="leaves">
+    {%- for t in topic_list -%}
+      {%- assign t_slug = t | downcase -%}
+      {%- assign needle = '|' | append: t_slug | append: '|' -%}
+      {%- assign t_count = all_topics | split: needle | size | minus: 1 -%}
+      {%- if t_count > 0 %}
+    <li class="leaf topic-{{ t_slug }}" data-topic="{{ t_slug }}">
+      <button type="button" class="leaf-switch" data-filter="{{ t_slug }}" aria-pressed="false">
+        <span class="leaf-name">{{ t }}</span>
+        <span class="leaf-ports" aria-hidden="true">{% for i in (1..t_count) %}<i></i>{% endfor %}</span>
+        <span class="leaf-count">{{ t_count }} {% if t_count == 1 %}article{% else %}articles{% endif %}</span>
+      </button>
+      <ul class="servers">
+        {%- for p in site.posts -%}
+          {%- include topic.html -%}
+          {%- if topic_slug == t_slug -%}
+            {%- assign d = site.data.articles[p.slug] -%}
+            {%- assign short = p.short_title | default: d.short -%}
+            {%- unless short -%}
+              {%- assign short = p.title | remove_first: 'Technical Guide: ' | remove_first: 'Deep Dive: ' | split: ':' | first | truncate: 48 -%}
+            {%- endunless %}
+        <li><a class="server{% if p.url == latest_url %} is-latest{% endif %}" href="{{ p.url | relative_url }}" title="{{ p.title | escape }}">
+          <span class="led" aria-hidden="true"></span>
+          <span class="server-name">{{ short | escape }}</span>
+          {%- if p.url == latest_url %}<span class="server-new">New</span>{% endif %}
+        </a></li>
+          {%- endif -%}
+        {%- endfor %}
+      </ul>
+    </li>
+      {%- endif -%}
+    {%- endfor %}
+  </ul>
+  <p class="fabric-status" aria-live="polite" hidden></p>
+</div>
