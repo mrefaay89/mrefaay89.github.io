@@ -1,12 +1,32 @@
 ---
 layout: page
-title: About Me
+title: About me
+subtitle: Infrastructure technical lead, Riyadh
 permalink: /about/
 ---
 
-I am a Cloud and Infrastructure Specialist with extensive expertise in Hyper-Converged Infrastructure (HCI), Virtualization, and enterprise Storage and Backup solutions. 
+I'm Mohamed Refaay, an infrastructure technical lead with more than 12 years in the data center. I design, build and support enterprise infrastructure: hyperconverged platforms, virtualization, Cisco data center networking, servers, storage and data protection.
 
-Feel free to reach out to me for collaborations, technical discussions, or professional networking:
+Most of my work today is with **Nutanix**: new deployments, migrations from VMware, external storage, network segmentation, security hardening and the troubleshooting that comes with real customer environments. I also work with VMware vSphere, Azure Local and the Microsoft infrastructure stack.
 
-* <a href="https://www.linkedin.com/in/mohamed-refaay-6b49a0120" target="_blank">LinkedIn</a>
-* <a href="https://github.com/mrefaay89" target="_blank">GitHub</a>
+## Why this blog
+
+Vendor documentation tells you what each feature does. It doesn't always tell you what to check before a change, what the customer will notice, or what goes wrong on the night. I write these articles to fill that gap: the designs, the commands, the diagrams, and the lessons from projects I've actually delivered.
+
+## What you'll find here
+
+| Topic | Examples |
+|---|---|
+| Nutanix design and deployment | Cisco UCS (ISM, IMM, UMM), external storage with Dell PowerStore and Pure FlashArray |
+| Networking | AHV networking for VMware engineers, network segmentation |
+| Migration | ESXi to AHV conversion, re-IP with Nutanix DR |
+| Troubleshooting | Real incidents, root causes and permanent fixes |
+| Security | Cluster hardening on AHV and ESXi |
+
+## Get in touch
+
+I'm happy to talk about Nutanix, infrastructure design, or anything you've read here.
+
+- [LinkedIn](https://www.linkedin.com/in/mohamed-refaay-6b49a0120)
+- [GitHub](https://github.com/mrefaay89)
+- [Email](mailto:mrefaay@outlook.com)

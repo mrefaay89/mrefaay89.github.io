@@ -2,10 +2,6 @@
 layout: home
 ---
 
-<div style="direction: rtl; text-align: center;">
+I'm Mohamed Refaay, an infrastructure technical lead in Riyadh. I write up the designs, migrations and fixes from my customer projects, step by step, with the diagrams I use on site.
 
-Welcome to my technical blog. This is a space where I share my professional experiences, deep dives, and troubleshooting guides focused on **Hybrid Infrastructure**, **Cloud Computing**, and **Enterprise Virtualization**.
-
-I aim to provide clear, actionable content for engineers and IT leaders navigating the complexities of modern data centers.
-
-</div>
+Most of it is about **Nutanix**, alongside VMware, Cisco UCS, storage and security.

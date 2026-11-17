@@ -1,0 +1,16 @@
+{%- comment -%}
+  Sets `thumb` to the first image in post `p` (its header image),
+  or to `p.image` when the post sets one in its front matter.
+{%- endcomment -%}
+{%- assign thumb = nil -%}
+{%- if p.image -%}
+  {%- assign thumb = p.image -%}
+{%- else -%}
+  {%- assign img_parts = p.content | split: '<img' -%}
+  {%- if img_parts.size > 1 -%}
+    {%- assign src_parts = img_parts[1] | split: '>' | first | split: 'src="' -%}
+    {%- if src_parts.size > 1 -%}
+      {%- assign thumb = src_parts[1] | split: '"' | first -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

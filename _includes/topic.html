@@ -1,0 +1,21 @@
+{%- comment -%}
+  Sets `topic` and `topic_slug` for the post in variable `p`.
+  A post can override it with `topic:` in its front matter.
+{%- endcomment -%}
+{%- assign tc = p.categories | join: ' ' -%}
+{%- if p.topic -%}
+  {%- assign topic = p.topic -%}
+{%- elsif tc contains 'security' -%}
+  {%- assign topic = 'Security' -%}
+{%- elsif tc contains 'networking' or tc contains 'ahv' or tc contains 'openshift' -%}
+  {%- assign topic = 'Networking' -%}
+{%- elsif tc contains 'powerstore' or tc contains 'pure-storage' or tc contains 'storage' -%}
+  {%- assign topic = 'Storage' -%}
+{%- elsif tc contains 'cisco' or tc contains 'hpe' or tc contains 'dell' or tc contains 'lenovo' -%}
+  {%- assign topic = 'Hardware' -%}
+{%- elsif tc contains 'migration' or tc contains 'virtualization' -%}
+  {%- assign topic = 'Migration' -%}
+{%- else -%}
+  {%- assign topic = 'Nutanix' -%}
+{%- endif -%}
+{%- assign topic_slug = topic | downcase | replace: ' ', '-' -%}

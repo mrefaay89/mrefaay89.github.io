@@ -1,14 +1,25 @@
-title: Mohamed Refaay Blogs
+title: Mohamed Refaay
+author: Mohamed Refaay
 email: mrefaay@outlook.com
 description: >-
-  Hybrid Infrastructure & Cloud Specialist. 
-  Sharing insights on Virtualization, Data Protection, and Multi-Cloud solutions.
+  Field notes from real Nutanix and data center projects: designs, migrations,
+  troubleshooting and security, written step by step.
+
+# Home page and author box text
+hero_title: Field notes from real Nutanix projects
+author_bio: >-
+  Infrastructure technical lead in Riyadh with 12+ years in the data center:
+  Nutanix, VMware, Cisco UCS, storage and data protection.
+footer_tagline: >-
+  Hybrid infrastructure and virtualization: Nutanix, VMware, Cisco UCS,
+  storage and data protection.
 
 # Social Media Links
-github_username:  mrefaay89
-linkedin_username: mohamed-refaay-6b49a0120 # Updated based on your profile
+github_username: mrefaay89
+linkedin_username: mohamed-refaay-6b49a0120
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag

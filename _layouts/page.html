@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<article class="page">
+  <header class="post-header">
+    <div class="wrap">
+      <h1>{{ page.title | escape }}</h1>
+      {%- if page.subtitle %}<p class="page-subtitle">{{ page.subtitle | escape }}</p>{% endif %}
+    </div>
+  </header>
+  <div class="wrap">
+    <div class="post-content page-content">
+      {{ content }}
+    </div>
+  </div>
+</article>

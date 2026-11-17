@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{%- assign p = page -%}
+{%- include topic.html -%}
+{%- assign words = content | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | plus: 1 -%}
+
+<article class="post topic-{{ topic_slug }}" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="wrap">
+      <p class="post-header-meta">
+        <span class="chip">{{ topic }}</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %B %Y" }}</time>, {{ minutes }} min read
+      </p>
+      <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+      <p class="post-author">By <span itemprop="author">{{ site.author | default: 'Mohamed Refaay' }}</span></p>
+    </div>
+  </header>
+
+  <div class="wrap post-grid">
+    <div class="post-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+    <aside class="toc" aria-label="On this page" hidden>
+      <p class="toc-title">On this page</p>
+      <nav><ol></ol></nav>
+    </aside>
+  </div>
+
+  <div class="wrap post-end">
+    <div class="author-box">
+      <span class="brand-mark" aria-hidden="true">MR</span>
+      <div>
+        <p class="author-name">Mohamed Refaay</p>
+        <p>{{ site.author_bio | default: site.description }}</p>
+        <p class="author-links">
+          {%- if site.linkedin_username %}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">Connect on LinkedIn</a>{% endif %}
+          <a href="{{ '/' | relative_url }}#articles">More articles</a>
+        </p>
+      </div>
+    </div>
+
+    <nav class="post-nav" aria-label="More articles">
+      {%- if page.previous %}
+      <a class="post-nav-prev" href="{{ page.previous.url | relative_url }}">
+        <span>Older</span>
+        {{ page.previous.title | escape }}
+      </a>
+      {%- else %}<span></span>{%- endif %}
+      {%- if page.next %}
+      <a class="post-nav-next" href="{{ page.next.url | relative_url }}">
+        <span>Newer</span>
+        {{ page.next.title | escape }}
+      </a>
+      {%- endif %}
+    </nav>
+  </div>
+</article>
