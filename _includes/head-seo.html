@@ -1,0 +1,51 @@
+{%- comment -%}
+  Wraps jekyll-seo-tag and fills two gaps it leaves on this blog:
+
+  1. Description. The posts open with their header image, so Jekyll's automatic
+     excerpt is empty and every article fell back to the site description.
+     Here a post gets the first real paragraph of its own text instead.
+  2. Sharing image. Without `image:` in front matter, LinkedIn and X showed no
+     picture. A post now shares its header image (the first image in the post);
+     every other page shares site.share_image.
+
+  `description:` or `image:` in a post's front matter still win.
+{%- endcomment -%}
+{%- capture seo_tags -%}{% seo %}{%- endcapture -%}
+
+{%- if page.layout == 'post' and page.description == nil -%}
+  {%- assign auto_desc = nil -%}
+  {%- assign paras = page.content | split: '</p>' -%}
+  {%- for para in paras -%}
+    {%- unless para contains '<img' -%}
+      {%- assign para_text = para | strip_html | normalize_whitespace | strip -%}
+      {%- if para_text.size > 80 -%}
+        {%- assign auto_desc = para_text | truncate: 160 | escape_once -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+  {%- if auto_desc -%}
+    {%- assign site_desc = site.description | normalize_whitespace | strip | escape -%}
+    {%- assign seo_tags = seo_tags | replace: site_desc, auto_desc -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- unless page.image -%}
+  {%- assign share_img = site.share_image -%}
+  {%- if page.layout == 'post' -%}
+    {%- assign img_parts = page.content | split: '<img' -%}
+    {%- if img_parts.size > 1 -%}
+      {%- assign src_parts = img_parts[1] | split: '>' | first | split: 'src="' -%}
+      {%- if src_parts.size > 1 -%}{%- assign share_img = src_parts[1] | split: '"' | first -%}{%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if share_img -%}
+    {%- capture share_tags -%}
+<meta property="og:image" content="{{ share_img | absolute_url }}" />
+<meta property="twitter:image" content="{{ share_img | absolute_url }}" />
+<meta name="twitter:card" content="summary_large_image" />
+    {%- endcapture -%}
+    {%- assign seo_tags = seo_tags | replace: '<meta name="twitter:card" content="summary" />', share_tags -%}
+  {%- endif -%}
+{%- endunless -%}
+{{ seo_tags }}

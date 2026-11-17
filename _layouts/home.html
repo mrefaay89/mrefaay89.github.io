@@ -62,7 +62,7 @@ layout: default
           <p class="post-meta"><span class="chip">{{ topic }}</span> <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%-d %b %Y" }}</time>, {{ minutes }} min read</p>
           <h3><a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a></h3>
           <p class="post-excerpt">
-            {%- if p.description -%}{{ p.description | escape }}{%- else -%}{{ p.content | strip_html | strip_newlines | truncatewords: 34 }}{%- endif -%}
+            {%- if p.description -%}{{ p.description | escape }}{%- else -%}{{ p.content | strip_html | normalize_whitespace | truncatewords: 34 }}{%- endif -%}
           </p>
           {%- assign applies = p.applies_to | default: d.applies_to -%}
           {%- assign work = p.work | default: d.work -%}
