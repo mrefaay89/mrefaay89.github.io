@@ -86,3 +86,10 @@ nutanix-cluster-hardening-ahv-esxi:
   downtime: None expected for most steps
   tested: AOS 7.3
   series: Nutanix security
+
+nutanix-upgrade-aos-ahv-prism-central-lcm:
+  short: Upgrading AOS, AHV and Prism Central
+  applies_to: AHV, with ESXi notes
+  work: Upgrade and maintenance
+  downtime: Rolling. Non-migratable VMs are powered off while their host is upgraded
+  tested: LCM 3.4, AOS 7.6, AHV 11.2, pc.7.6

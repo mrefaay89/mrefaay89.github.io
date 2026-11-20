@@ -15,6 +15,8 @@
   {%- assign topic = 'Hardware' -%}
 {%- elsif tc contains 'migration' or tc contains 'virtualization' -%}
   {%- assign topic = 'Migration' -%}
+{%- elsif tc contains 'lifecycle' or tc contains 'operations' -%}
+  {%- assign topic = 'Operations' -%}
 {%- else -%}
   {%- assign topic = 'Infrastructure' -%}
 {%- endif -%}
