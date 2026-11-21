@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Technical Guide: Nutanix Network Segmentation on AHV and ESXi (Backplane, Volumes, DR and RDMA)"
+title: "Nutanix Network Segmentation on AHV and ESXi (Backplane, Volumes, DR and RDMA)"
 date: 2026-11-16
 categories: hybrid-infrastructure nutanix networking
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Technical Guide: Deploying Nutanix on Cisco UCS with Fabric Interconnects (IMM and UMM)"
+title: "Deploying Nutanix on Cisco UCS with Fabric Interconnects (IMM and UMM)"
 date: 2026-11-09
 categories: hybrid-infrastructure nutanix cisco-ucs
 ---

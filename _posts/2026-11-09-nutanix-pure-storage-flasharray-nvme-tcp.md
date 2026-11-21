@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Technical Guide: Nutanix Compute Clusters on Everpure (Pure Storage) FlashArray over NVMe/TCP"
+title: "Nutanix Compute Clusters on Everpure (Pure Storage) FlashArray over NVMe/TCP"
 date: 2026-11-09
 categories: hybrid-infrastructure nutanix pure-storage
 ---

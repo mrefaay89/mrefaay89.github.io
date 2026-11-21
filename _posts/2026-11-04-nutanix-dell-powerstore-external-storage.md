@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Technical Guide: Nutanix External Storage with Dell PowerStore (DAP and Foundation Central)"
+title: "Nutanix External Storage with Dell PowerStore (DAP and Foundation Central)"
 date: 2026-11-04
 categories: hybrid-infrastructure nutanix dell-powerstore
 ---

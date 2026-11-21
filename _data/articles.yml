@@ -12,15 +12,17 @@
 
 nutanix-inplace-conversion-esxi-to-ahv:
   short: In-place ESXi to AHV conversion
-  applies_to: ESXi to AHV
+  applies_to: ESXi 8.0 to AHV
   work: Migration
-  downtime: Rolling, typically under 5 minutes per VM
+  downtime: Under 5 minutes per VM. About 3 to 4 hours for the cluster
+  tested: AOS 7.6
 
 nutanix-cisco-ucs-standalone-deployment:
   short: Cisco UCS standalone (ISM)
-  applies_to: AHV or ESXi
+  applies_to: AHV, with ESXi notes
   work: New deployment
-  hardware: Cisco UCS C-Series
+  tested: Cisco ISM design guide (Dec 2025), LCM 3.4
+  hardware: Cisco UCS C-Series rack servers
   series: Nutanix on Cisco UCS
 
 nutanix-dell-powerstore-external-storage:
